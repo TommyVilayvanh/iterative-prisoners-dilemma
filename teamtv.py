@@ -6,9 +6,9 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'Tommy V.'
-strategy_name = 'Error'
-strategy_description = 'return \'\', \' \', or int 4'
+team_name = 'Tommy'
+strategy_name = 'Betray all day everyday'
+strategy_description = 'Always betray most of the time'
 import random
     
 def move(my_history, their_history, my_score, their_score):
@@ -22,5 +22,9 @@ def move(my_history, their_history, my_score, their_score):
     Returns 'c' or 'b' for collude or betray.
     '''
     
-    #This example player always betrays.      
-    return random.choice(['', ' ', 4])
+    # If the other player has colluded or last half of the game,
+
+    if 'c' in their_history or len(their_history)>100:
+        return 'c'        #Collude
+    else:
+        return'b'         # Betray 90% of the time 
